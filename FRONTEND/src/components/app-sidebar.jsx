@@ -32,13 +32,14 @@ export function AppSidebar() {
   const username = localStorage.getItem("username") || "";
   const isLoggedIn = username && username.trim() !== "";
 
-  // ✅ fetch records only if logged in
   const handleFetch = async () => {
     if (!isLoggedIn) return;
 
     try {
       setFetching(true);
-      const resp = await fetch(`http://localhost:8080/get/${username}`);
+      const resp = await fetch(
+        `https://springappllm.azurewebsites.net/get/${username}`
+      );
       if (!resp.ok) {
         console.log("Error fetching previous records");
         return;
@@ -55,7 +56,7 @@ export function AppSidebar() {
 
   useEffect(() => {
     handleFetch();
-  }, [username]); // ✅ runs again if user logs in/out
+  }, [username]);
 
   const handleRecordClick = (record) =>
     navigate("/Selection", { state: record });
@@ -96,7 +97,6 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
-        {/* 🏠 Home Section */}
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -128,7 +128,6 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* 📂 Previous Uploads or Login Prompt */}
         {!isLoggedIn ? (
           <p className="text-sm text-muted-foreground px-3 py-2">
             Please log in to see your uploads.
@@ -194,7 +193,6 @@ export function AppSidebar() {
         )}
       </SidebarContent>
 
-      {/* 👤 Footer */}
       <SidebarFooter className="mt-auto border-t border-border pt-2">
         <SidebarMenu>
           <SidebarMenuItem>

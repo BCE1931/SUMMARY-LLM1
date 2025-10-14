@@ -61,7 +61,7 @@ const Signup = () => {
 
     dispatch({ type: "ch_sending", value: true });
     const { ok, data } = await handleFetch(
-      `http://localhost:8080/signup`,
+      `https://springappllm.azurewebsites.net/signup`,
       "signup",
       "POST",
       { token: "", required: false },
@@ -92,7 +92,6 @@ const Signup = () => {
       <Card className="w-[350px] rounded-2xl">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">SignUp</CardTitle>
-          {/* <CardDescription>Enter your credentials to continue</CardDescription> */}
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid gap-2">

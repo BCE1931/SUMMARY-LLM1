@@ -17,6 +17,11 @@ public class Controller {
     @Autowired
     private Users1_Service users1_Service;
 
+    @GetMapping("/hi")
+    public String hi() {
+        return "hi";
+    }
+
     @PostMapping("/signup")
     private ResponseEntity<?> signup(@RequestBody Users1 users1) {
         return users1_Service.signup(users1);
