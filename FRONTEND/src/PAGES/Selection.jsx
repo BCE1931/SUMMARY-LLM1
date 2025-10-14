@@ -97,7 +97,7 @@ const Selection = () => {
       if (!prompt.trim()) return alert("Enter a prompt");
       const wavBlob = await convertToAzureWav(file);
       const formData = new FormData();
-      formData.append("file", wavBlob, "converted.wav");
+      formData.append("file", file);
       formData.append("username", username);
       formData.append("title", title);
       formData.append("prompt", prompt);
