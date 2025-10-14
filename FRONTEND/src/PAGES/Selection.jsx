@@ -76,6 +76,7 @@ const Selection = () => {
         return;
       }
 
+      formData.append("file", file);
       formData.append("username", username);
       formData.append("title", title);
       formData.append("prompt", prompt);
