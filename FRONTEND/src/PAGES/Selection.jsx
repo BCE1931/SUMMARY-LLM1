@@ -113,7 +113,7 @@ const Selection = () => {
       formData.append("title", title);
       formData.append("prompt", prompt);
 
-      const res = await fetch("http://localhost:8080/upload", {
+      const res = await fetch("https://springappllm.azurewebsites.net/upload", {
         method: "POST",
         body: formData,
       });
