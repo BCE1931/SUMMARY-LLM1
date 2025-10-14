@@ -51,9 +51,8 @@ async function convertToWav(inputFile) {
 
 const Selection = () => {
   const location = useLocation();
-  const record = location.state; // data passed from sidebar
+  const record = location.state;
 
-  // 🔹 Initialize state
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(record?.summary || "");
@@ -62,17 +61,14 @@ const Selection = () => {
   const [audioUrl, setAudioUrl] = useState(record?.blobUrl || "");
   const [prompt, setprompt] = useState(record?.prompt || "");
 
-  // ✅ Detect navigation changes (e.g., Home clicked)
   useEffect(() => {
     if (record) {
-      // Viewing record mode
       setTitle(record.title || "");
       setResult(record.summary || "");
       setAudioUrl(record.blobUrl || "");
       settext(record.transcription || "");
       setprompt(record.prompt || "");
     } else {
-      // Reset for new upload mode
       setTitle("");
       setResult("");
       setAudioUrl("");
@@ -82,7 +78,7 @@ const Selection = () => {
     }
   }, [record]);
 
-  const isReadOnly = !!record; // true if accessed from sidebar
+  const isReadOnly = !!record;
 
   const handleUpload = async () => {
     if (!file) return alert("Please select an audio or video file!");
@@ -147,7 +143,6 @@ const Selection = () => {
         </CardHeader>
 
         <CardContent className="space-y-4">
-          {/* Title */}
           <Input
             type="text"
             value={title}
@@ -163,7 +158,6 @@ const Selection = () => {
             disabled={isReadOnly || loading}
           />
 
-          {/* Audio Player if record has blobUrl */}
           {isReadOnly && audioUrl && (
             <div className="mt-3">
               <audio controls src={audioUrl} className="w-full rounded-md">
@@ -172,7 +166,6 @@ const Selection = () => {
             </div>
           )}
 
-          {/* File input (only if new upload) */}
           {!isReadOnly && (
             <Input
               type="file"
@@ -182,7 +175,6 @@ const Selection = () => {
             />
           )}
 
-          {/* Submit button (only for upload mode) */}
           {!isReadOnly && (
             <Button
               className="w-full flex items-center justify-center gap-2"
@@ -194,7 +186,6 @@ const Selection = () => {
             </Button>
           )}
 
-          {/* Display Summary */}
           {result && (
             <div className="bg-gray-100 p-3 rounded-lg border text-gray-700 w-96">
               <Accordion type="single" collapsible>
@@ -210,7 +201,6 @@ const Selection = () => {
                   </AccordionContent>
                 </AccordionItem>
 
-                {/* Transcription Section */}
                 <AccordionItem value="transcription">
                   <AccordionTrigger className="font-semibold text-gray-800">
                     🎙️ Transcription

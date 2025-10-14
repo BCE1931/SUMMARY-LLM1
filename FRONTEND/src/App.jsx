@@ -8,7 +8,6 @@ import Signup from "./PAGES/Signup";
 import Selection from "./PAGES/Selection";
 
 const App = () => {
-  // 🔒 Public route (only for non-logged-in users)
   const PublicRoute = ({ element }) => {
     return localStorage.getItem("username") ? (
       <Navigate to="/Selection" replace />
@@ -17,7 +16,6 @@ const App = () => {
     );
   };
 
-  // 🔐 Protected route (only for logged-in users)
   const ProtectedRoute = ({ element }) => {
     return localStorage.getItem("username") ? (
       element
@@ -38,7 +36,6 @@ const App = () => {
             <div className="centered-content">
               <div className="card-wrapper">
                 <Routes>
-                  {/* 👇 Public routes */}
                   <Route
                     path="/"
                     element={<PublicRoute element={<Card1 />} />}
@@ -48,13 +45,11 @@ const App = () => {
                     element={<PublicRoute element={<Signup />} />}
                   />
 
-                  {/* 👇 Protected route */}
                   <Route
                     path="/Selection"
                     element={<ProtectedRoute element={<Selection />} />}
                   />
 
-                  {/* 👇 Catch-all redirect */}
                   <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
               </div>
