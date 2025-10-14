@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SpinnerCustom } from "@/components/ui/spinner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
+
 import {
   Dialog,
   DialogContent,
@@ -18,6 +20,34 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+const ffmpeg = createFFmpeg({ log: true });
+
+async function convertToWav(inputFile) {
+  if (!ffmpeg.isLoaded()) {
+    await ffmpeg.load();
+  }
+
+  const fileName = inputFile.name;
+  const outputName = "output.wav";
+
+  ffmpeg.FS("writeFile", fileName, await fetchFile(inputFile));
+
+  await ffmpeg.run(
+    "-i",
+    fileName,
+    "-acodec",
+    "pcm_s16le",
+    "-ac",
+    "1",
+    "-ar",
+    "16000",
+    outputName
+  );
+
+  const data = ffmpeg.FS("readFile", outputName);
+  return new File([data.buffer], outputName, { type: "audio/wav" });
+}
 
 const Selection = () => {
   const location = useLocation();
@@ -60,7 +90,6 @@ const Selection = () => {
 
     try {
       const formData = new FormData();
-      formData.append("file", file);
 
       const username = localStorage.getItem("username") || "guest";
       if (!username) {
@@ -76,12 +105,15 @@ const Selection = () => {
         return;
       }
 
-      formData.append("file", file);
+      const wavFile = await convertToWav(file);
+      console.log("✅ Converted to WAV:", wavFile);
+
+      formData.append("file", wavFile);
       formData.append("username", username);
       formData.append("title", title);
       formData.append("prompt", prompt);
 
-      const res = await fetch("https://springappllm.azurewebsites.net/upload", {
+      const res = await fetch("http://localhost:8080/upload", {
         method: "POST",
         body: formData,
       });
