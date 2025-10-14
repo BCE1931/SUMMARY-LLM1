@@ -114,7 +114,7 @@ export function AppSidebar() {
 
                   <SidebarMenuButton asChild>
                     <a
-                      href="https://github.com/sasi098/MERN"
+                      href="https://github.com/BCE1931/SUMMARY-LLM1"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full text-left font-medium hover:text-primary flex items-center space-x-2"

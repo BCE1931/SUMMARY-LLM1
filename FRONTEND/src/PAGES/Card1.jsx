@@ -132,7 +132,7 @@ const Card1 = () => {
         <CardFooter className="flex flex-col gap-2">
           <Button className="w-full">
             <a
-              href="https://github.com/sasi098/MERN"
+              href="https://github.com/BCE1931/SUMMARY-LLM1"
               target="_blank"
               rel="noopener noreferrer"
             >
