@@ -1,8 +1,7 @@
 # 🎧 Summary LLM
 
 ## 🎬 Demo Video  
-[![Watch the Demo](https://img.youtube.com/vi/eWrQxZwTGPg/0.jpg)](https://youtu.be/eWrQxZwTGPg)  
-> 🎥 Click the thumbnail above to watch a full walkthrough of the application.
+🎥 [**Watch the Project Demo here (Google Drive)**](https://drive.google.com/file/d/1Fe1XurV8zKDsAI-IKLINJhT_FuQdMfwy/view?usp=sharing)
 
 ---
 
@@ -51,3 +50,4 @@ An AI-powered audio summarization web app that converts spoken content into conc
 ---
 
 ## 📁 Folder Structure
+
