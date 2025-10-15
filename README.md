@@ -1,6 +1,12 @@
 # 🎧 Summary LLM
 
-An AI-powered audio summarization web app that converts spoken content into concise, readable summaries — powered by Azure Cognitive Services and modern full-stack technologies.
+## 🎬 Demo Video  
+[![Watch the Demo](https://img.youtube.com/vi/eWrQxZwTGPg/0.jpg)](https://youtu.be/eWrQxZwTGPg)  
+> 🎥 Click the thumbnail above to watch a full walkthrough of the application.
+
+---
+
+An AI-powered audio summarization web app that converts spoken content into concise, readable summaries — powered by **Azure Cognitive Services** and modern full-stack technologies.
 
 ---
 
@@ -8,9 +14,9 @@ An AI-powered audio summarization web app that converts spoken content into conc
 
 ### 🚀 Frontend
 - **React.js**
-- **shadcn/ui** (for modern UI components)
-- **Tailwind CSS** (for styling)
-- **React Router** (for navigation)
+- **shadcn/ui** (for beautiful modern UI components)
+- **Tailwind CSS** (for responsive styling)
+- **React Router** (for navigation and route protection)
 
 ### ⚙️ Backend
 - **Spring Boot (Java)**
@@ -18,20 +24,30 @@ An AI-powered audio summarization web app that converts spoken content into conc
 
 ### ☁️ Cloud Infrastructure
 - **Microsoft Azure**
-  - 🔊 **Azure Speech to Text (ASR)** for audio transcription  
-  - 🧠 **Azure AI Factory** for summary generation  
-  - 💾 **Azure Blob Storage** for storing uploaded audio files  
+  - 🔊 **Azure Speech to Text (ASR)** — for transcription  
+  - 🧠 **Azure AI Factory** — for generating summaries  
+  - 💾 **Azure Blob Storage** — for secure audio storage  
 
 ### 🌐 Deployment
 - **Frontend:** [Vercel](https://vercel.com/)  
-- **Backend:** Deployed on **Azure App Service**
+- **Backend:** **Azure App Service**
 
 ---
 
-## 🔗 Live Demo
-👉 [**summary-llm-1.vercel.app**](https://summary-llm-1.vercel.app/)
+## 🔗 Live Project  
+👉 [**https://summary-llm-1.vercel.app/**](https://summary-llm-1.vercel.app/)
+
+---
+
+## ⚡ Features
+- 🎤 Upload and convert audio to Azure-compatible WAV  
+- ☁️ Store files securely using Azure Blob Storage  
+- 🧩 Transcribe audio via Azure ASR  
+- 🧠 Generate intelligent summaries via Azure AI Factory  
+- 🔐 User authentication (Sign-up & Login)  
+- 🌙 Dark/light theme toggle (shadcn/ui)  
+- ⚙️ Fully cloud-deployed (Azure + Vercel)
 
 ---
 
 ## 📁 Folder Structure
-
