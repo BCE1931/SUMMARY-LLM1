@@ -75,10 +75,13 @@ export function AppSidebar() {
       formData.append("username", username);
       formData.append("id", id);
 
-      const resp = await fetch("http://localhost:8080/delete", {
-        method: "DELETE",
-        body: formData,
-      });
+      const resp = await fetch(
+        "https://springappforllm.azurewebsites.net/delete",
+        {
+          method: "DELETE",
+          body: formData,
+        }
+      );
 
       if (!resp.ok) {
         alert("Error deleting record");

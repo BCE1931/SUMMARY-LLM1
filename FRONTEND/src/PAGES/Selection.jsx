@@ -109,10 +109,13 @@ const Selection = () => {
       formData.append("title", title);
       formData.append("prompt", prompt);
 
-      const res = await fetch("https://springappllm.azurewebsites.net/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const res = await fetch(
+        "https://springappforllm.azurewebsites.net/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!res.ok) throw new Error("Upload failed");
       const data = await res.json();

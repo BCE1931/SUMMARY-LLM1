@@ -55,7 +55,7 @@ const Card1 = () => {
 
     dispatch({ type: "ch_sending", value: true });
     const { ok, data } = await handleFetch(
-      `https://springappllm.azurewebsites.net/login`,
+      `https://springappforllm.azurewebsites.net/login`,
       "login",
       "POST",
       { token: "", required: false },

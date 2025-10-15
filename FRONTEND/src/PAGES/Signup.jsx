@@ -61,7 +61,7 @@ const Signup = () => {
 
     dispatch({ type: "ch_sending", value: true });
     const { ok, data } = await handleFetch(
-      `https://springappllm.azurewebsites.net/signup`,
+      `https://springappforllm.azurewebsites.net/signup`,
       "signup",
       "POST",
       { token: "", required: false },
